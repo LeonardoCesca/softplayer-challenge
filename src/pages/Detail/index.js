@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { returnCharacterById } from '../../redux/actions/characters';
+import { isLoadingCharacterById, returnCharacterById } from '../../redux/actions/characters';
 
 import Title from '../../components/Title';
 import Wrapper from '../../components/Wrapper';
@@ -14,25 +14,33 @@ const Detail = () => {
   const dispatch = useDispatch();
   const detail = useSelector((state) => state.charactersReducer.currentCharacter);
   const loading = useSelector((state) => state.charactersReducer.loadingCurrentCharacter);
+  const [visible, setVisible] = React.useState(true);
+
+  React.useEffect(async () => {
+    dispatch(isLoadingCharacterById(true));
+    dispatch(returnCharacterById(id));
+  }, [dispatch]);
 
   React.useEffect(() => {
-    dispatch(returnCharacterById(id));
-  }, [dispatch, loading]);
-  
+    setTimeout(() => {
+      setVisible(loading);
+    }, 100);
+  }, [loading])
+
   return (
     <div>
-      {loading ? (
+      <Title>Detalhes</Title>
+      {visible ? (
         <Loading />
-      ) : (
+      ):(
         <Wrapper>
-          {detail.map(item => (
+          {detail !== undefined && detail.map(item => (
             <section className='detail' key={item.id}>
-              <Title>Detalhes</Title>
               <div className='detail__container'>
                 <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} alt={item.name} className='detail__image'/>
-                <div className='detail__infos'>
-                  <h3>{item.name}</h3>
-                  <p>{item.description}</p>
+                <div className='detail-infos'>
+                  <h3 className="detail-infos__title">{item.name}</h3>
+                  <p className="detail-infos__description">{item.description ? item.description : 'Nenhuma descrição encontrada.'}</p>
                 </div>
               </div>
             </section>
