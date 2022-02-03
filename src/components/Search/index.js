@@ -9,7 +9,12 @@ const Search = ({value, onChange}) => {
     };
 
     return (
-        <input className='search' value={value} onChange={handleChange}/>
+        <input 
+            className='search' 
+            value={value} 
+            onChange={handleChange}
+            placeholder='Pesquisar...'
+        />
     );
 }
 
