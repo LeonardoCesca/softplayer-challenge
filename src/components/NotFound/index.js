@@ -4,8 +4,8 @@ import './style.scss';
 
 const NotFound = ({text}) => {
     return (
-        <div>
-            <span className='not-found'>{text}</span>
+        <div className='not-found'>
+            <span className='not-found__text'>{text}</span>
         </div>
     );
 }
