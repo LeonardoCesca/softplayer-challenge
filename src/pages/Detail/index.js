@@ -5,6 +5,7 @@ import { returnCharacterById } from '../../redux/actions/characters';
 
 import Title from '../../components/Title';
 import Wrapper from '../../components/Wrapper';
+import Loading from '../../components/Loading';
 
 import './style.scss';
 
@@ -21,7 +22,7 @@ const Detail = () => {
   return (
     <div>
       {loading ? (
-        <>carregando...</>
+        <Loading />
       ) : (
         <Wrapper>
           {detail.map(item => (

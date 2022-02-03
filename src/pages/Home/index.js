@@ -7,6 +7,7 @@ import Card from '../../components/Card';
 import Wrapper from '../../components/Wrapper';
 import Search from '../../components/Search';
 import NotFound from '../../components/NotFound';
+import Loading from '../../components/Loading';
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -49,7 +50,7 @@ const Home = () => {
     return (
         <>
             {loading ? (
-                <>carregando...</>
+                <Loading />
             ) : (
                 <Wrapper>
                     <section className='container-search'>
