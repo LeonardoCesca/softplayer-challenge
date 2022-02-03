@@ -16,7 +16,7 @@ const Detail = () => {
   const loading = useSelector((state) => state.charactersReducer.loadingCurrentCharacter);
   const [visible, setVisible] = React.useState(true);
 
-  React.useEffect(() => {
+  React.useMemo(() => {
     function setDispatchs() {
       dispatch(isLoadingCharacterById(true));
       dispatch(returnCharacterById(id));
@@ -25,13 +25,11 @@ const Detail = () => {
   }, [dispatch, id]);
 
   React.useEffect(() => {
-    setTimeout(() => {
-      setVisible(loading);
-    }, 100);
+    setVisible(loading);
   }, [loading])
 
   return (
-    <div>
+    <>
       <Title>Detalhes</Title>
       {visible ? (
         <Loading />
@@ -48,9 +46,10 @@ const Detail = () => {
               </div>
             </section>
           ))}
+      {console.log(detail)}
         </Wrapper>
       )}
-    </div>
+    </>
   );
 }
 
