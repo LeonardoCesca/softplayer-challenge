@@ -6,4 +6,8 @@ function getAllCharacters() {
     return api.get(`/characters?ts=${REACT_APP_TS}&apikey=${REACT_APP_API_KEY}&hash=${REACT_APP_HASH}`);
 }
 
-export default { getAllCharacters };
+function getCharacterById(id) {
+    return api.get(`/characters/${id}?ts=${REACT_APP_TS}&apikey=${REACT_APP_API_KEY}&hash=${REACT_APP_HASH}`);
+}
+
+export default { getAllCharacters, getCharacterById };
