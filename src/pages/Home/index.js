@@ -56,12 +56,24 @@ const Home = () => {
                         <Search value={search} onChange={handleChange} />
                     </section>
                     <section className='d-grid'>
-                        {characters.length && result.length <= 0 && !notFound ? characters.map((item, i) =>
-                            <Card key={i} name={item.name} thumbnail={item.thumbnail} />    
+                        {characters.length && result.length <= 0 && !notFound ? characters.map((item) =>
+                            <Card 
+                                key={item.id} 
+                                name={item.name} 
+                                thumbnail={item.thumbnail} 
+                                id={item.id} 
+                                routeDetail="detalhe"
+                            />    
                         ):(
                             <>
-                                {result.length && !notFound && result.map((item, i) => 
-                                    <Card key={i} name={item.name} thumbnail={item.thumbnail} />    
+                                {result.length && !notFound && result.map((item) => 
+                                    <Card 
+                                        key={item.id} 
+                                        name={item.name} 
+                                        thumbnail={item.thumbnail} 
+                                        id={item.id} 
+                                        routeDetail="detalhe"
+                                    />    
                                 )}
                             </>
                         )}
