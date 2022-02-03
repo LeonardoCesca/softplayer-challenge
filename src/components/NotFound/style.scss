@@ -3,6 +3,7 @@
 .not-found {
     position: absolute;
     margin: 0 auto;
+    top: 50%;
 
     &__text {
         color: $white;
