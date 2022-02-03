@@ -1,4 +1,4 @@
-import { GET_CHARACTERS, GET_CHARACTER_ID } from "../../types/characters";
+import { GET_CHARACTERS, GET_CHARACTER_ID, LOADING_CHARACTER_ID } from "../../types/characters";
 
 const initialState = {
   characters: [],
@@ -19,6 +19,11 @@ export const charactersReducer = (state = initialState, action) => {
         ...state,
         loadingCurrentCharacter: false,
         currentCharacter: action.characterId
+      };
+    case LOADING_CHARACTER_ID:
+      return {
+        ...state,
+        loadingCurrentCharacter: action.loadingCharacter,
       };
     default:
       return state;
