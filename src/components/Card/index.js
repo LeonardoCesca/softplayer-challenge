@@ -5,7 +5,6 @@ import { AiFillEdit } from 'react-icons/ai';
 import { BsInfoSquare } from 'react-icons/bs';
 
 const Card = ({name, thumbnail}) => {
-
     return (
         <div className='card'>
             <img src={`${thumbnail.path}.${thumbnail.extension}`} alt={name} className='card__image' />
@@ -19,8 +18,8 @@ const Card = ({name, thumbnail}) => {
 }
 
 Card.propTypes = {
-    name: PropTypes.string,
-    thumbnail: PropTypes.object
+    name: PropTypes.string.isRequired,
+    thumbnail: PropTypes.object.isRequired
 };
 
 export default Card;
