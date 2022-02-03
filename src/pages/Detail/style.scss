@@ -1,0 +1,15 @@
+@import '../../styles/variables.scss';
+
+.detail {
+    &__container {
+        display: flex;
+        color: $white;
+    }
+    &__image {
+        max-width: 100%;
+        width: 30%;
+    }
+    &__infos {
+        padding-left: 5%;
+    }
+}
