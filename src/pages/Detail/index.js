@@ -16,10 +16,13 @@ const Detail = () => {
   const loading = useSelector((state) => state.charactersReducer.loadingCurrentCharacter);
   const [visible, setVisible] = React.useState(true);
 
-  React.useEffect(async () => {
-    dispatch(isLoadingCharacterById(true));
-    dispatch(returnCharacterById(id));
-  }, [dispatch]);
+  React.useEffect(() => {
+    function setDispatchs() {
+      dispatch(isLoadingCharacterById(true));
+      dispatch(returnCharacterById(id));
+    }
+    setDispatchs();
+  }, [dispatch, id]);
 
   React.useEffect(() => {
     setTimeout(() => {

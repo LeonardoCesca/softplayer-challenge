@@ -22,22 +22,22 @@ const Home = () => {
         setSearch(value);
     };
 
-    const handleSearch = () => {
-        setNotFound(false);
-        if (search == '' && !notFound) {
-            setResult([]);
-            return characters;
-        }
-        searchCharacters();
-    };
-
-    const searchCharacters = () => {
+    const searchCharacters = React.useCallback(() => {
         if (characters.filter((item) => item.name.toLowerCase().includes(search)).length) {
             return setResult(characters.filter((item) => item.name.toLowerCase().includes(search)));
         } else {
             return setNotFound(true);
         }
-    };
+    }, [characters, search]);
+
+    const handleSearch = React.useCallback(() => {
+        setNotFound(false);
+        if (search === '' && !notFound) {
+            setResult([]);
+            return characters;
+        }
+        searchCharacters();
+    }, [search, notFound, characters, searchCharacters]);
 
     React.useEffect(() => {
         dispatch(returnCharacters());
@@ -45,7 +45,7 @@ const Home = () => {
 
     React.useEffect(() => {
         handleSearch();
-    },[search]);
+    },[search, handleSearch]);
 
     return (
         <>
