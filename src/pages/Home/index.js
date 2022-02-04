@@ -23,8 +23,8 @@ const Home = () => {
     };
 
     const searchCharacters = React.useCallback(() => {
-        if (characters.filter((item) => item.name.toLowerCase().includes(search)).length) {
-            return setResult(characters.filter((item) => item.name.toLowerCase().includes(search)));
+        if (characters.filter((item) => item.name.includes(search)).length) {
+            return setResult(characters.filter((item) => item.name.includes(search)));
         } else {
             return setNotFound(true);
         }
