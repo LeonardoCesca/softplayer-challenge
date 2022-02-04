@@ -57,7 +57,7 @@ const Home = () => {
                         <Search value={search} onChange={handleChange} />
                     </section>
                     <section className='d-grid'>
-                        {characters.length && result.length <= 0 && !notFound ? characters.map((item) =>
+                        {characters.length && !notFound ? characters.map((item) =>
                             <Card 
                                 key={item.id} 
                                 name={item.name} 
@@ -67,7 +67,7 @@ const Home = () => {
                             />    
                         ):(
                             <>
-                                {result.length && !notFound && result.map((item) => 
+                                {result.length > 0 && !notFound && result.map((item) => 
                                     <Card 
                                         key={item.id} 
                                         name={item.name} 
