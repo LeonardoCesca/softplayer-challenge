@@ -6,6 +6,7 @@ import { isLoadingCharacterById, returnCharacterById } from '../../redux/actions
 import Title from '../../components/Title';
 import Wrapper from '../../components/Wrapper';
 import Loading from '../../components/Loading';
+import List from '../../components/List';
 
 import './style.scss';
 
@@ -40,13 +41,16 @@ const Detail = () => {
               <div className='detail__container'>
                 <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} alt={item.name} className='detail__image'/>
                 <div className='detail-infos'>
-                  <h3 className="detail-infos__title">{item.name}</h3>
-                  <p className="detail-infos__description">{item.description ? item.description : 'Nenhuma descrição encontrada.'}</p>
+                  <h3 className='detail-infos__title'>{item.name}</h3>
+                  <p className='detail-infos__description'>{item.description ? item.description : 'Nenhuma descrição encontrada.'}</p>
                 </div>
               </div>
             </section>
           ))}
-      {console.log(detail)}
+          <section className='series'>
+            <Title>Series</Title>
+            <List list={detail} />
+          </section>
         </Wrapper>
       )}
     </>
