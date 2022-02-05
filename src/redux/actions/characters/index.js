@@ -1,4 +1,9 @@
-import { GET_CHARACTERS, GET_CHARACTER_ID, LOADING_CHARACTER_ID } from "../../types/characters";
+import { 
+    GET_CHARACTERS, 
+    GET_CHARACTER_ID, 
+    LOADING_CHARACTER_ID,
+    UPDATE_CHARACTER,
+} from "../../types/characters";
 import marvelService from "../../../services/marvel.service";
 
 export const returnCharacters = () => {
@@ -18,6 +23,16 @@ export const isLoadingCharacterById = (loadingCharacter) => {
         dispatch({
             type: LOADING_CHARACTER_ID, 
             loadingCharacter
+        })
+    }
+};
+
+export const returnUpdateCharacter = (id, name) => {
+    return (dispatch) => {
+        dispatch({
+            type: UPDATE_CHARACTER,
+            id,
+            name
         })
     }
 };

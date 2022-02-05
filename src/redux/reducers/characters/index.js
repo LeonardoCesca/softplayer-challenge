@@ -1,4 +1,9 @@
-import { GET_CHARACTERS, GET_CHARACTER_ID, LOADING_CHARACTER_ID } from "../../types/characters";
+import { 
+  GET_CHARACTERS, 
+  GET_CHARACTER_ID, 
+  LOADING_CHARACTER_ID,
+  UPDATE_CHARACTER,
+} from "../../types/characters";
 
 const initialState = {
   characters: [],
@@ -25,6 +30,23 @@ export const charactersReducer = (state = initialState, action) => {
         ...state,
         loadingCurrentCharacter: action.loadingCharacter,
       };
+    case UPDATE_CHARACTER: 
+      const selectedCharacter = state.characters.filter(charact => action.id === charact.id);
+      const charactersLessCurrent = state.characters.filter(charact => action.id !== charact.id);
+
+      const updatedCaracters = [
+        {
+          ...selectedCharacter[0],
+          name: action.name,
+        },
+        ...charactersLessCurrent
+      ];
+
+      return {
+        ...state,
+        characters: updatedCaracters
+      };
+
     default:
       return state;
   }
