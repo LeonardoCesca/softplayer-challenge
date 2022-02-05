@@ -17,7 +17,7 @@ const Form = ({infos}) => {
 
     React.useEffect(() => {
         if(infos) setName(infos.name);
-    }, []);
+    }, [infos]);
 
     return (
         <>
