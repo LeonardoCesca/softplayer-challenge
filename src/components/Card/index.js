@@ -1,30 +1,32 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './style.scss';
-import { AiFillEdit } from 'react-icons/ai';
 import { BsInfoSquare } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
 
-const Card = ({name, thumbnail, id, routeDetail}) => {
+import Edit from '../Edit';
+
+const Card = ({cards}) => {
     return (
-        <div className='card'>
-            <img src={`${thumbnail.path}.${thumbnail.extension}`} alt={name} className='card__image' />
-            <p className='card__title'>{name}</p>
-            <div className='card__icons'>
-                <AiFillEdit />
-                <Link to={`${routeDetail}/${id}`}>
-                    <BsInfoSquare />
-                </Link>
-            </div>
-        </div>
+        <>
+            {cards.map((item) => (
+                <div className='card' key={item.id}>
+                    <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} alt={item.name} className='card__image' />
+                    <p className='card__title'>{item.name}</p>
+                    <div className='card__icons'>
+                        <Edit selectedCard={{id: item.id, name: item.name}} />
+                        <Link to={`detalhe/${item.id}`}>
+                            <BsInfoSquare title='Detalhes' />
+                        </Link>
+                    </div>
+                </div>
+            ))}
+        </>
     );
 }
 
 Card.propTypes = {
-    name: PropTypes.string.isRequired,
-    routeDetail: PropTypes.string.isRequired,
-    thumbnail: PropTypes.object.isRequired,
-    id: PropTypes.number.isRequired
+    cards: PropTypes.array.isRequired
 };
 
 export default Card;
