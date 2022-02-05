@@ -5,6 +5,25 @@
     height: 24px;
     color: $infos;
     cursor: pointer;
+
+    &__close {
+        background: $title;
+        color: $white;
+        font-family: 'Helvetica', 'Arial', sans-serif;
+        font-size: 1.3em;
+        font-weight: bold;
+        text-align: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: absolute;
+        top: 5%;
+        right: 5%;
+    }
 }
 
 .form {
@@ -52,6 +71,7 @@
         padding: 10px;
         margin: 0 auto;
         background-color: $title;
+        color: $white;
         border: none;
         font-weight: 600;
         cursor: pointer;

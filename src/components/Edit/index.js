@@ -24,7 +24,7 @@ const Edit = ({selectedCard}) => {
     return (
         <>
             <AiFillEdit 
-                className="edit" 
+                className='edit'
                 title='Editar'
                 onClick={handleEdit} 
             />
@@ -38,16 +38,17 @@ const Edit = ({selectedCard}) => {
                     <label htmlFor={name} className='form__label'>Nome</label>
                     <input 
                         id={name}
-                        type="text" 
+                        type='text'
                         value={name}
                         className='form__input'
                         onChange={(e) => setName(e.target.value)}
                         />
                     <input 
                         className='form__btn'
-                        type="submit" 
-                        value="Enviar" 
+                        type='submit' 
+                        value='Enviar' 
                     />
+                    <span className='edit__close' onClick={() => setModal(false)}>X</span>
                 </form> 
             )}
         </>
