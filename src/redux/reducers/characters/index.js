@@ -9,6 +9,7 @@ const initialState = {
   characters: [],
   loadingCharacters: true,
   loadingCurrentCharacter: true,
+  isEdited: false,
 };
 
 export const charactersReducer = (state = initialState, action) => {
@@ -44,7 +45,8 @@ export const charactersReducer = (state = initialState, action) => {
 
       return {
         ...state,
-        characters: updatedCaracters
+        characters: updatedCaracters,
+        isEdited: true
       };
 
     default:

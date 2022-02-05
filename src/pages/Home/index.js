@@ -13,6 +13,7 @@ const Home = () => {
     const dispatch = useDispatch();
     const characters = useSelector((state) => state.charactersReducer.characters);
     const loading = useSelector((state) => state.charactersReducer.loadingCharacters);
+    const isEdited = useSelector((state) => state.charactersReducer.isEdited);
 
     const [search, setSearch] = React.useState('');
     const [result, setResult] = React.useState([]);
@@ -40,8 +41,8 @@ const Home = () => {
     }, [search, notFound, characters, searchCharacters]);
 
     React.useEffect(() => {
-        dispatch(returnCharacters());
-    }, [dispatch, loading]);
+        if (!isEdited) dispatch(returnCharacters());
+    }, [dispatch, loading, isEdited]);
 
     React.useEffect(() => {
         handleSearch();
