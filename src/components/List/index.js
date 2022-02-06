@@ -8,7 +8,7 @@ const List = ({list}) => {
             {list !== undefined && list.map(({series}, index) => (
                 <React.Fragment key={index}>
                     {series !== undefined && series.items.length ? (
-                        <ul className='list' key={index}>
+                        <ul className='list' key={index} datatest-id="list">
                             {series.items.map(({name}) => (
                                 <li key={name} className='list__item'>{name}</li>
                             ))}

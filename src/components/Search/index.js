@@ -3,17 +3,13 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 const Search = ({value, onChange}) => {
-
-    const handleChange = (event) => {
-        onChange(event.target.value);
-    };
-
     return (
         <input 
             className='search' 
             value={value} 
-            onChange={handleChange}
+            onChange={onChange}
             placeholder='Pesquisar...'
+            datatest-id="search"
         />
     );
 }

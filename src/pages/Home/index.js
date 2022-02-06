@@ -19,8 +19,8 @@ const Home = () => {
   const [result, setResult] = React.useState([]);
   const [notFound, setNotFound] = React.useState(false);
 
-  const handleChange = (value) => {
-    setSearch(value);
+  const handleChange = (event) => {
+    setSearch(event.target.value);
   };
 
   const searchCharacters = React.useCallback(() => {

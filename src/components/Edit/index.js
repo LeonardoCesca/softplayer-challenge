@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './style.scss';
 
 import { AiFillEdit } from 'react-icons/ai';
@@ -26,7 +27,8 @@ const Edit = ({selectedCard}) => {
             <AiFillEdit 
                 className='edit'
                 title='Editar'
-                onClick={handleEdit} 
+                onClick={handleEdit}
+                datatest-id="edit-btn"
             />
 
             {modal && (
@@ -42,6 +44,7 @@ const Edit = ({selectedCard}) => {
                         value={name}
                         className='form__input'
                         onChange={(e) => setName(e.target.value)}
+                        data-testid="edit"
                         />
                     <input 
                         className='form__btn'
@@ -54,5 +57,9 @@ const Edit = ({selectedCard}) => {
         </>
     );
 }
+
+Edit.propTypes = {
+    selectedCard: PropTypes.object.isRequired
+};
 
 export default Edit;

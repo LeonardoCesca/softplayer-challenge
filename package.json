@@ -15,6 +15,7 @@
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
+    "redux-mock-store": "^1.5.4",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.4.1",
     "web-vitals": "^2.1.4"
@@ -22,7 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage --watchAll",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -45,5 +46,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/**/**/*.{js,jsx}",
+      "!src/*.js",
+      "!src/**/**/**/route.js",
+      "!src/**/**/routes.js"
+    ]
+  },
+  "devDependencies": {
+    "jest": "^27.4.5",
+    "jest-watch-typeahead": "^0.6.5"
   }
 }
