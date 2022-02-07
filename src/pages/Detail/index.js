@@ -36,7 +36,7 @@ const Detail = () => {
         <Loading />
       ):(
         <Wrapper>
-          {detail !== undefined && detail.map(item => (
+          {detail !== undefined && !visible && detail.map(item => (
             <section className="detail" key={item.id}>
               <div className="detail__container">
                 <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} alt={item.name} className="detail__image"/>
