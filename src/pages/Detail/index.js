@@ -26,7 +26,9 @@ const Detail = () => {
   }, [dispatch, id]);
 
   React.useEffect(() => {
-    setVisible(loading);
+    setTimeout(() => {
+      setVisible(loading);
+    }, 200);
   }, [loading])
 
   React.useEffect(() => {
