@@ -16,6 +16,10 @@
 * Utilize @testing-library/react para testes
 
 ## Rodando o projeto
+
+### `npm install`
+
+Rode o comando acima para instalar todos os pacotes necessários para rodar a aplicação localmente.
 ### `npm start`
 
 Rode o comando acima para iniciar a aplicação localmente.
