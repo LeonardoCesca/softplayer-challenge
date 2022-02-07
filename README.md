@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# Marvel
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Requisitos Funcionais
 
-## Available Scripts
+* Crie uma lista de cards para exibir os personagens mostrando a imagem e o nome
+* Possibilite o usuário buscar personagens em todos os personagens da base
+* Na lista o usuário pode ir para a página de detalhes do personagem e ver a lista de series dele
+* Crie um formulário para editar um personagem Marvel (salvando apenas no client-side)
 
-In the project directory, you can run:
+## Requisitos não Funcionais
 
+* Usar React
+* Utilize o create-react-app como base
+* Utilize redux para gerenciar o estado
+* Utilize react-router para trocar de página
+* Utilize @testing-library/react para testes
+
+## Rodando o projeto
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Rode o comando acima para iniciar a aplicação localmente.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Rode o comando acima para testar a aplicação.
 
-### `npm run build`
+## Deploy
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+O deploy está sendo feito utilizando a Vercel. Qualquer commit que é feito na master o deploy acontece automaticamente.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Para conferir a aplicação basta clicar [aqui](https://softplayer-challenge.vercel.app/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tour pela aplicação
 
-### `npm run eject`
+Ao inicializar a aplicação temos a página Home, onde é exibido a listagem dos cards dos personagens com imagem/nome e a barra de busca para filtrar os personagens. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Os cards possuem dois ícones que ao passar o mouse por cima possuem um titulo. Basicamente, eles servem para editar e visualizar os detalhes do card específico.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Ao clicar em editar, temos um formulário onde é possível editar o nome do personagem e este nome é salvo no state do Redux e persistido na pagina Home.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Ao clicar em detalhes, temos a página a detalhes onde é exibido a imagem do personagem, seu nome, descrição e suas séries.
