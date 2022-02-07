@@ -26,14 +26,8 @@ const Detail = () => {
   }, [dispatch, id]);
 
   React.useEffect(() => {
-    setTimeout(() => {
-      setVisible(loading);
-    }, 200);
+    setVisible(loading);
   }, [loading])
-
-  React.useEffect(() => {
-    if (detail === undefined) return null;
-  }, [detail]);
 
   return (
     <>
@@ -42,7 +36,7 @@ const Detail = () => {
         <Loading />
       ):(
         <Wrapper>
-          {Array.isArray(detail) && detail.map(item => (
+          {detail !== undefined && detail.map(item => (
             <section className="detail" key={item.id}>
               <div className="detail__container">
                 <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} alt={item.name} className="detail__image"/>
